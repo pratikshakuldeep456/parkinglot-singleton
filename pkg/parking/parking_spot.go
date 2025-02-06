@@ -13,7 +13,7 @@ func NewParkingSpot(id int, vt VehicleType) *ParkingSpot {
 		ID:         id,
 		Type:       vt,
 		IsOccupied: false,
-		Vehicle:    &Vehicle{},
+		Vehicle:    nil,
 	}
 
 }

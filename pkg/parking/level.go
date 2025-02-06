@@ -32,17 +32,17 @@ func NewLevel(floor int, noSpots int) *Level {
 	return level
 }
 
-func (l *Level) ParkVehicle(v *Vehicle) bool {
+func (l *Level) ParkVehicle(v *Vehicle) (*ParkingSpot, bool) {
 	for _, spot := range l.ParkingSpots {
 		if spot.IsAvailable() && spot.Type == v.VehicleType {
 			fmt.Println("parking at", spot.ID)
 			spot.IsOccupied = true
 
 			spot.Vehicle = v
-			return true
+			return spot, true
 		}
 	}
-	return false
+	return nil, false
 }
 
 func (l *Level) UnParkVehicle(v *Vehicle) bool {
